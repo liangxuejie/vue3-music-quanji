@@ -1,6 +1,6 @@
 <template>
   <div class="tab">
-    <router-link
+    <router-link 
       class="tab-item"
       v-for="tab in tabs"
       :key="tab.path"
