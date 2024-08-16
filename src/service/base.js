@@ -7,7 +7,6 @@ const ERR_OK = 0
 const baseURL = process.env.NODE_ENV === 'production' ? 'http://ustbhuangyi.com/music-next/' : '/'
 
 axios.defaults.baseURL = baseURL
-// axios.defaults.baseURL = 'http://localhost:9002'
 
 export function get(url, params) {
   return axios.get(url, {

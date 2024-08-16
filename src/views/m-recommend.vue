@@ -1,16 +1,29 @@
 <template>
   <div class="recommend" >
-    <p>recommend</p>
+    <div class="recommend-content">
+      <div>
+        <div class="slider-wrapper">
+          <div class="slider-content">
+            <m-slider v-if="data.sliders.length" :sliders="data.sliders"></m-slider>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-  import { onMounted } from 'vue'
+  import { onMounted, reactive } from 'vue'
   import { getRecommend } from '@/service/recommend'
+  import mSlider from '@/base/slider/m-slider.vue'
 
-   onMounted( async () => {
+  const data = reactive({
+    sliders: []
+  })
+  onMounted(async () => {
     const result = await getRecommend()
     console.log('result', result)
+    data.sliders = result.sliders
   })
 
 </script>
