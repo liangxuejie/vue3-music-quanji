@@ -8,7 +8,6 @@ import loadingDirective from '@/base/loading/directive'
 // 引入全局样式文件
 import '@/assets/scss/index.scss'
 
-// createApp(App).use(router).mount('#app')
 const app = createApp(App)
 app.use(router)
 app.use(lazyPlugin, {

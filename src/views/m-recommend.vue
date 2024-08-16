@@ -1,6 +1,6 @@
 <template>
   <div class="recommend" v-loading="loading">
-    <div class="recommend-content">
+    <scroll class="recommend-content">
       <div>
         <div class="slider-wrapper">
           <div class="slider-content">
@@ -31,7 +31,7 @@
           </ul>
         </div>
       </div>
-    </div>
+    </scroll>
   </div>
 </template>
 
@@ -40,6 +40,7 @@
   import { useRouter } from 'vue-router'
   import { getRecommend } from '@/service/recommend'
   import mSlider from '@/base/slider/m-slider.vue'
+  import Scroll from '@/components/wrap-scroll'
 
   const router = useRouter()
   const data = reactive({
@@ -48,7 +49,6 @@
   })
   onMounted(async () => {
     const result = await getRecommend()
-    console.log('result', result)
     data.sliders = result.sliders
     data.albums = result.albums
   })
