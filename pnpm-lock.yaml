@@ -26,12 +26,18 @@ importers:
       axios-retry:
         specifier: ^3.1.9
         version: 3.9.1
+      good-storage:
+        specifier: ^1.1.1
+        version: 1.1.1
       vue:
         specifier: ^3.4.31
         version: 3.4.35(typescript@5.5.4)
       vue-router:
         specifier: ^4.0.0-0
         version: 4.4.3(vue@3.4.35(typescript@5.5.4))
+      vue3-lazy:
+        specifier: ^1.0.0-alpha.1
+        version: 1.0.0-alpha.1(vue@3.4.35(typescript@5.5.4))
     devDependencies:
       '@babel/core':
         specifier: ^7.25.2
@@ -1097,6 +1103,9 @@ packages:
     resolution: {integrity: sha512-jhIXaOzy1sb8IyocaruWSn1TjmnBVs8Ayhcy83rmxNJ8q2uWKCAj3CnJY+KpGSXCueAPc0i05kVvVKtP1t9S3g==}
     engines: {node: '>=10'}
 
+  good-storage@1.1.1:
+    resolution: {integrity: sha512-+0UEpRT03fJgEJoeTVVz41ISC5+jaQrDIWatQ4BoDQfOiBBsjNanymi9sAtLFdEAADQN0FYR8mGpeqxSCe8oXQ==}
+
   gopd@1.0.1:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
 
@@ -1753,6 +1762,12 @@ packages:
     resolution: {integrity: sha512-sv6wmNKx2j3aqJQDMxLFzs/u/mjA9Z5LCgy6BE0f7yFWMjrPLnS/sPNn8ARY/FXw6byV18EFutn5lTO6+UsV5A==}
     peerDependencies:
       vue: ^3.2.0
+
+  vue3-lazy@1.0.0-alpha.1:
+    resolution: {integrity: sha512-dpjpKK4DC5q+wZVtS/VY3X6pYBJHxRmYanr20s39RB6o6fvbneQ/DNuz37bipYfEdrEvbSZ95Y2SCexuznQNrQ==}
+    engines: {node: '>=6.0.0'}
+    peerDependencies:
+      vue: ^3.0.0-alpha.9
 
   vue@3.4.35:
     resolution: {integrity: sha512-+fl/GLmI4GPileHftVlCdB7fUL4aziPcqTudpTGXCT8s+iZWuOCeNEB5haX6Uz2IpRrbEXOgIFbe+XciCuGbNQ==}
@@ -2910,6 +2925,8 @@ snapshots:
       merge2: 1.4.1
       slash: 3.0.0
 
+  good-storage@1.1.1: {}
+
   gopd@1.0.1:
     dependencies:
       get-intrinsic: 1.2.4
@@ -3523,6 +3540,10 @@ snapshots:
   vue-router@4.4.3(vue@3.4.35(typescript@5.5.4)):
     dependencies:
       '@vue/devtools-api': 6.6.3
+      vue: 3.4.35(typescript@5.5.4)
+
+  vue3-lazy@1.0.0-alpha.1(vue@3.4.35(typescript@5.5.4)):
+    dependencies:
       vue: 3.4.35(typescript@5.5.4)
 
   vue@3.4.35(typescript@5.5.4):

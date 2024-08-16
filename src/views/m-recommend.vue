@@ -7,25 +7,61 @@
             <m-slider v-if="data.sliders.length" :sliders="data.sliders"></m-slider>
           </div>
         </div>
+        <div class="recommend-list">
+          <h1 class="list-title" v-show="!loading">热门歌单推荐</h1>
+          <ul>
+            <li
+              v-for="item in data.albums"
+              class="item"
+              :key="item.id"
+              @click="selectItem(item)"
+            >
+              <div class="icon">
+                <img width="60" height="60" v-lazy="item.pic">
+              </div>
+              <div class="text">
+                <h2 class="name">
+                  {{ item.username }}
+                </h2>
+                <p class="title">
+                  {{item.title}}
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-  import { onMounted, reactive } from 'vue'
+  import { onMounted, reactive, computed } from 'vue'
+  import { useRouter } from 'vue-router'
   import { getRecommend } from '@/service/recommend'
   import mSlider from '@/base/slider/m-slider.vue'
 
+  const router = useRouter()
   const data = reactive({
-    sliders: []
+    sliders: [],
+    albums: []
   })
   onMounted(async () => {
     const result = await getRecommend()
     console.log('result', result)
     data.sliders = result.sliders
+    data.albums = result.albums
   })
-
+  const loading = computed(() => {
+    return !data.sliders.length && !data.albums.length
+  })
+  function selectItem(album) {
+    // this.selectedAlbum = album
+    // this.cacheAlbum(album)
+    router.push({
+      path: `/recommend/${album.id}`
+    })
+  }
 </script>
 
 <style lang="scss" scoped>

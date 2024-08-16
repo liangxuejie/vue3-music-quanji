@@ -29,7 +29,12 @@
   BScroll.use(Slide)
 
   const props = defineProps({
-    sliders: { type: Array },
+    sliders: { 
+      type: Array,
+      default() {
+        return []
+      }
+    },
   })
   const rootRef = ref(null)
   const slider = ref(null)
@@ -63,7 +68,6 @@
   onDeactivated(() => {
     slider.value.disable()
   })
-
 </script>
 
 <style lang="scss" scoped>
