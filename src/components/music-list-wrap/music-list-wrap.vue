@@ -1,11 +1,11 @@
 <template>
     <div class="music-list-warp">
-        <!-- <MusicList
+        <MusicList
             :songs="state.songs"
             :title="title"
             :pic="pic"
             :loading="state.loading"
-        ></MusicList> -->
+        ></MusicList>
     </div>
 </template>
 
@@ -67,7 +67,7 @@
             })
             return
         }
-        const result = await props.fetch(data)
+        const result = await props.fetch(data.value.id)
         state.songs = await processSongs(result.songs)
         state.loading = false
     })

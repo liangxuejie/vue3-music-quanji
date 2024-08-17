@@ -5,7 +5,7 @@ export function processSongs(songs) {
     return Promise.resolve(songs)
   }
 
-  return get('/api/getSongsUrl', {
+  return get('/use/api/getSongsUrl', {
     mid: songs.map((song) => {
       return song.mid
     })
@@ -32,7 +32,7 @@ export function getLyric(song) {
     return Promise.resolve(lyric)
   }
 
-  return get('/api/getLyric', {
+  return get('/use/api/getLyric', {
     mid
   }).then((result) => {
     const lyric = result ? result.lyric : '[00:00:00]该歌曲暂时无法获取歌词'

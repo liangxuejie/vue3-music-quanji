@@ -1,7 +1,7 @@
 <template>
   <div class="album">
     <MusicListWrap
-      :wrapData="data"
+      :wrapData="props.data"
       :storageKey="ALBUM_KEY"
       :fetch="getAlbum"
     ></MusicListWrap>
@@ -16,9 +16,6 @@
   const props = defineProps({
         data: { 
             type: Object,
-            default() {
-                return {}
-            }
         },
     })
 </script>
