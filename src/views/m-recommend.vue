@@ -32,6 +32,11 @@
         </div>
       </div>
     </scroll>
+    <router-view v-slot="{ Component }">
+      <transition appear name="slide">
+        <component :is="Component" :data="data.selectedAlbum"/>
+      </transition>
+    </router-view>
   </div>
 </template>
 
@@ -41,11 +46,14 @@
   import { getRecommend } from '@/service/recommend'
   import mSlider from '@/base/slider/m-slider.vue'
   import Scroll from '@/components/wrap-scroll'
+  import storage from 'good-storage'
+  import { ALBUM_KEY } from '@/assets/js/constant'
 
   const router = useRouter()
   const data = reactive({
     sliders: [],
-    albums: []
+    albums: [],
+    selectedAlbum: null
   })
   onMounted(async () => {
     const result = await getRecommend()
@@ -56,11 +64,14 @@
     return !data.sliders.length && !data.albums.length
   })
   function selectItem(album) {
-    // this.selectedAlbum = album
-    // this.cacheAlbum(album)
+    data.selectedAlbum = album
+    cacheAlbum(album)
     router.push({
       path: `/recommend/${album.id}`
     })
+  }
+  function cacheAlbum(album) {
+    storage.session.set(ALBUM_KEY, album)
   }
 </script>
 

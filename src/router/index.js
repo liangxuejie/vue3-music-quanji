@@ -5,6 +5,7 @@ const Singer = () => import('@/views/m-singer.vue'/* webpackChunkName: "singer" 
 const TopList = () => import('@/views/top-list.vue'/* webpackChunkName: "top-list" */)
 const Search = () => import('@/views/m-search.vue'/* webpackChunkName: "search" */)
 const UserCenter = () => import('@/views/user-center.vue'/* webpackChunkName: "user-center" */)
+const Album = () => import('@/views/m-album.vue'/* webpackChunkName: "album" */)
 
 const routes = [
   {
@@ -14,6 +15,12 @@ const routes = [
   {
     path: '/recommend',
     component: Recommend,
+    children: [
+      {
+        path: ':id',
+        component: Album
+      }
+    ]
   },
   {
     path: '/singer',
