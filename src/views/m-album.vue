@@ -1,21 +1,26 @@
 <template>
   <div class="album">
-    <!-- <music-list
-      :songs="songs"
-      :title="title"
-      :pic="pic"
-      :loading="loading"
-    ></music-list> -->
-    <p>album</p>
+    <MusicListWrap
+      :wrapData="data"
+      :storageKey="ALBUM_KEY"
+      :fetch="getAlbum"
+    ></MusicListWrap>
   </div>
 </template>
 
 <script setup>
-  // import createDetailComponent from '@/assets/js/create-detail-component'
-  // import { getAlbum } from '@/service/recommend'
-  // import { ALBUM_KEY } from '@/assets/js/constant'
+  import MusicListWrap from '@/components/music-list-wrap/music-list-wrap.vue'
+  import { getAlbum } from '@/service/recommend'
+  import { ALBUM_KEY } from '@/assets/js/constant'
 
-  // export default createDetailComponent('album', ALBUM_KEY, getAlbum)
+  const props = defineProps({
+        data: { 
+            type: Object,
+            default() {
+                return {}
+            }
+        },
+    })
 </script>
 
 <style lang="scss" scoped>
