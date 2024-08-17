@@ -52,11 +52,11 @@
     })
     const pic = computed(() => {
         const data = computedData
-        return data && data.pic
+        return data.value && data.value.pic
     })
     const title = computed(() => {
         const data = computedData
-        return data && (data.name || data.title)
+        return data.value && (data.value.name || data.value.title)
     })
     onMounted(async() => {
         const data = computedData
